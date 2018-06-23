@@ -11,6 +11,7 @@ namespace RegistroArticulosConDetalle.DAL
     {
         public DbSet<Articulos> articulos { get; set; }
         public DbSet<Personas> personas { get; set; }     
+        public DbSet<Cotizaciones> cotizaciones { get; set; }
 
         // base("ConStr") para pasar la conexion a la clase base de EntityFramework 
         public Contexto() : base("ConStr") { }

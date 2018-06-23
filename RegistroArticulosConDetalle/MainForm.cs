@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RegistroArticulosConDetalle.UI.Consultas;
+using RegistroArticulosConDetalle.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,16 +67,6 @@ namespace RegistroArticulosConDetalle
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -101,6 +93,41 @@ namespace RegistroArticulosConDetalle
             {
                 childForm.Close();
             }
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rPersonas registro = new rPersonas();
+            registro.MdiParent = this;
+            registro.Show();
+        }
+
+        private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rArticulos registro = new rArticulos();
+            registro.MdiParent = this;
+            registro.Show();
+        }
+
+        private void cotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rCotizaciones registro = new rCotizaciones();
+            registro.MdiParent = this;
+            registro.Show();
+        }
+
+        private void personaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CPersonas consulta = new CPersonas();
+            consulta.MdiParent = this;
+            consulta.Show();
+        }
+
+        private void articulosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CArticulos consulta = new CArticulos();
+            consulta.MdiParent = this;
+            consulta.Show();
         }
     }
 }
