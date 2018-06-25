@@ -1,4 +1,5 @@
 ﻿using RegistroArticulosConDetalle.BLL;
+using RegistroArticulosConDetalle.DAL;
 using RegistroArticulosConDetalle.Entidades;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace RegistroArticulosConDetalle.UI.Registros
         public rCotizaciones()
         {
             InitializeComponent();
+            LlenarComboBox();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -124,6 +126,19 @@ namespace RegistroArticulosConDetalle.UI.Registros
             {
                 throw;
             }
+        }
+
+        private void LlenarComboBox()
+        {
+            Repositorio<Personas> repositorio = new Repositorio<Personas>(new Contexto());
+            Repositorio<Articulos> repositori = new Repositorio<Articulos>(new Contexto());
+            PersonacomboBox.DataSource = repositorio.GetList(c => true);
+            PersonacomboBox.ValueMember = "PersonaId";
+            PersonacomboBox.DisplayMember = "Nombres";
+
+            ArticulocomboBox.DataSource = repositori.GetList(c => true);
+            ArticulocomboBox.ValueMember = "ArticuloId";
+            ArticulocomboBox.DisplayMember = "Descripcion";
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
